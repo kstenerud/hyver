@@ -21,10 +21,10 @@ Format
 
 Where:
 
-- `track` is a number representing the release track (much like the major version in SemVer). This can be 0 for the "prerelease" track.
-- `year`, `month`, `day` mark the date (always use leading zeroes in month and day).
+- `track` is a number representing the release track (much like the major version in Python). This can be 0 for the "prerelease" track.
+- `year`, `month`, `day` mark the date (month and day are always 2 digits).
 - `release` is the daily release number (always starting at 1). If more than one release occurs in a day, increment this (so for example the 2nd release is 2).
-- `metadata` is a series of letters (always in alphabetical order) representing metadata about this particular release. If no metadata is needed, this field is omitted.
+- `metadata` is a series of letters (always in alphabetical order) representing metadata about this particular release. If no metadata letters are needed, this field is omitted.
   - `b`: This release contains breaking changes.
   - `d`: This release contains deprecations.
   - `n`: This release contains new features/functionality/APIs
@@ -53,12 +53,12 @@ Example
 
 On July 1st, 2019, you released two versions on track 2, and 1 version on track 3:
 
-- The first release on track 2 introduced necessary breaking changes.
+- The first release on track 2 introduced some new backported features.
 - The second release on track 2 introduced some small fixes and documentation changes, but no breakage.
-- The release on track 3 introduced new features, deprecated some APIs and also had some unfortunately necessary breaking changes.
+- The release on track 3 introduced new features, deprecated some APIs, and also had breaking changes.
 
 ```
-    2.2019.07.01.1-b
+    2.2019.07.01.1-n
     2.2019.07.01.2
     3.2019.07.01.1-bdn
 ```
@@ -72,7 +72,7 @@ Later on, you realize that `3.2019.07.01.1` exposes the user passwords, but for 
 Now your release list looks like this in alphabetical order:
 
 ```
-    2.2019.07.01.1-b
+    2.2019.07.01.1-n
     2.2019.07.01.2
     3.2019.07.01.1-bdn
     3.2019.07.01.1-z
