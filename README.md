@@ -19,6 +19,7 @@ Where:
 - `metadata` is a series of letters (always in alphabetical order) representing metadata about this particular release:
   - `b`: This release contains breaking changes.
   - `d`: This release contains deprecations.
+  - `n`: This release contains new features/functionality/APIs
 
 There is also a special metadata letter `z` which is used (alone) to alert users to a bad release that you cannot retract for some reason. Of course if you can retract the bad release then by all means do so. `z` is only a hack to handle poorly designed "ratchet" release systems that don't allow retraction.
 
@@ -26,13 +27,13 @@ There is also a special metadata letter `z` which is used (alone) to alert users
 Example
 -------
 
-On July 1st, 2019, you released two versions on track 2, and 1 version on track 3. The first release on track 2 introduced minor (but necessary) breaking changes. The release on track 3 deprecated some APIs and also had some unfortunately necessary breaking changes.
+On July 1st, 2019, you released two versions on track 2, and 1 version on track 3. The first release on track 2 introduced minor (but necessary) breaking changes. The release on track 3 introduced new features, deprecated some APIs and also had some unfortunately necessary breaking changes.
 
     2.2019.07.01.1-b
     2.2019.07.01.2
-    3.2019.07.01.1-bd
+    3.2019.07.01.1-bdn
 
-Later that day, you realize that `3.2019.07.01.1-bd` exposes the user passwords, but for whatever reason you're not able to retract it from release. In such a case, you tag the same code again:
+Later on, you realize that `3.2019.07.01.1` exposes the user passwords, but for whatever reason you're not able to retract it from release. In such a case, you tag the same code again:
 
     3.2019.07.01.1-z
 
@@ -40,7 +41,7 @@ Now your release list looks like this in alphabetical order:
 
     2.2019.07.01.1-b
     2.2019.07.01.2
-    3.2019.07.01.1-bd
+    3.2019.07.01.1-bdn
     3.2019.07.01.1-z
 
-People (and machines) now know to avoid `3.2019.07.01.1-bd`.
+People (and machines) now know to avoid `3.2019.07.01.1`.
