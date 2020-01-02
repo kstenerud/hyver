@@ -32,6 +32,22 @@ Where:
 There is also a special metadata letter `z` which is used (alone) to alert users to a bad release that you cannot retract for some reason. Of course if you can retract the bad release then by all means do so. `z` is only a hack to handle poorly designed "ratchet" release systems that don't allow retraction.
 
 
+Why
+---
+
+Versioning is ultimately a U/X problem. The goal is to make it as easy as possible for the user to glean the most important information about a release without having to dig through the documentation. A secondary goal is to make it easy for machines to determine which releases are safe to upgrade.
+
+HyVer solves the major U/X issues in the following ways:
+
+- The version string always begins with the same number of characters, following the same format: `d.dddd.dd.dd.d` This makes it very easy to scan a list of releases (for humans and machines).
+- The version strings are designed to sort properly using naive alphabetic sorting routines.
+- The metadata is stored separately, at the end (`-xyz`). This makes it very easy to see which versions have introduced what kinds of changes. With SemVer, you can only glean this information by comparing two versions (hopefully). With HyVer, you don't need a version to compare against in order to know what kinds of changes were introduced.
+- The numbers mean something. The numbers in version `3.14.6` have no meaning, other than the implied, hopefully correct metadata. In HyVer versions, every field has a specific meaning that conveys important information to the user:
+  - Release track
+  - Release date
+  - Important metadata
+
+
 Example
 -------
 
